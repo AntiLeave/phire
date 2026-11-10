@@ -2232,7 +2232,7 @@ dependencies = [
 [[package]]
 name = "macroquad"
 version = "0.4.16"
-source = "git+https://github.com/2278535805/macroquad#aa952e87a2bcf435553b7c6b56b286755fa5b02e"
+source = "git+https://github.com/AntiLeave/macroquad#aa952e87a2bcf435553b7c6b56b286755fa5b02e"
 dependencies = [
  "fontdue",
  "glam 0.27.0",
@@ -2245,7 +2245,7 @@ dependencies = [
 [[package]]
 name = "macroquad_macro"
 version = "0.1.8"
-source = "git+https://github.com/2278535805/macroquad#aa952e87a2bcf435553b7c6b56b286755fa5b02e"
+source = "git+https://github.com/AntiLeave/macroquad#aa952e87a2bcf435553b7c6b56b286755fa5b02e"
 
 [[package]]
 name = "malloc_buf"
@@ -2319,7 +2319,7 @@ checksum = "6877bb514081ee2a7ff5ef9de3281f14a4dd4bceac4c09388074a6b5df8a139a"
 [[package]]
 name = "miniquad"
 version = "0.4.10"
-source = "git+https://github.com/2278535805/miniquad#cccbc8194b8ad77e36d078b11ff01d4e617198d2"
+source = "git+https://github.com/AntiLeave/miniquad#cccbc8194b8ad77e36d078b11ff01d4e617198d2"
 dependencies = [
  "hms-opengtx-binding",
  "jni 0.21.1",
@@ -2919,7 +2919,7 @@ dependencies = [
 [[package]]
 name = "oboe"
 version = "0.6.1"
-source = "git+https://github.com/2278535805/oboe-rs#47ee6e78351c57f61a2ec047e895cce1b678dbff"
+source = "git+https://github.com/AntiLeave/oboe-rs#47ee6e78351c57f61a2ec047e895cce1b678dbff"
 dependencies = [
  "num-derive",
  "num-traits",
@@ -2929,7 +2929,7 @@ dependencies = [
 [[package]]
 name = "oboe-sys"
 version = "0.6.1"
-source = "git+https://github.com/2278535805/oboe-rs#47ee6e78351c57f61a2ec047e895cce1b678dbff"
+source = "git+https://github.com/AntiLeave/oboe-rs#47ee6e78351c57f61a2ec047e895cce1b678dbff"
 dependencies = [
  "cc",
 ]
@@ -4158,7 +4158,7 @@ dependencies = [
 [[package]]
 name = "sasa"
 version = "0.2.0"
-source = "git+https://github.com/2278535805/sasa#9158ea984d341ad42dc6c8a99219f9a4d55bf9ae"
+source = "git+https://github.com/AntiLeave/sasa#9158ea984d341ad42dc6c8a99219f9a4d55bf9ae"
 dependencies = [
  "anyhow",
  "atomic_float",
