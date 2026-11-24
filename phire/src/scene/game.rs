@@ -18,7 +18,7 @@ use crate::{
     gyro::GYRO,
     info::{ChartFormat, ChartInfo},
     judge::{Judge, ReplayData},
-    parse::{RPE_WIDTH, parse_extra, parse_pec, parse_phigros, parse_rpe},
+    parse::{parse_extra, parse_pec, parse_phigros, parse_rpe},
     task::Task,
     time::TimeManager,
     ui::{InlineInputBtn, Ui},
@@ -582,10 +582,6 @@ impl GameScene {
         )
         .await
         .context("Failed to load resources")?;
-
-        if matches!(format, ChartFormat::Rpe) {
-            res.info.line_length *= 4000. / RPE_WIDTH / 6.;
-        }
 
         let exercise_range = offset + res.config.play_start_time..res.track_length;
         
