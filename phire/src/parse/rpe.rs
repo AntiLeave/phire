@@ -654,24 +654,7 @@ async fn parse_judge_line(
                     .as_ref()
                     .map(|e| -> Result<_> {
                         Ok(AnimVector(
-                            parse(
-                                r,
-                                &e.scale_x_events,
-                                factor
-                                    * if rpe.texture == "line.png"
-                                        && rpe
-                                            .extended
-                                            .as_ref()
-                                            .and_then(|it| it.text_events.as_ref())
-                                            .is_none_or(|it| it.is_empty())
-                                        && rpe.attach_ui.is_none()
-                                    {
-                                        4000. / RPE_WIDTH / 6.
-                                    } else {
-                                        1.
-                                    },
-                                bezier_map,
-                            )?,
+                            parse(r, &e.scale_x_events, factor, bezier_map)?,
                             parse(r, &e.scale_y_events, factor, bezier_map)?,
                         ))
                     })
@@ -883,5 +866,16 @@ pub async fn parse_rpe(source: &str, fs: &mut dyn FileSystem, extra: ChartExtra)
         );
     }
     process_lines(&mut lines);
-    Ok(Chart::new(rpe.meta.offset as f64 / 1000.0, lines, r, ChartSettings::default(), extra, hitsounds, fonts))
+    Ok(Chart::new(
+        rpe.meta.offset as f64 / 1000.0,
+        lines,
+        r,
+        ChartSettings {
+            line_length_scale: 4000. / RPE_WIDTH / 6.,
+            ..Default::default()
+        },
+        extra,
+        hitsounds,
+        fonts
+    ))
 }

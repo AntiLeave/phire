@@ -546,12 +546,14 @@ impl BinaryData for ChartSettings {
         Ok(Self {
             pe_alpha_extension: r.read()?,
             line_reference_y_axis: r.read()?,
+            line_length_scale: r.read()?,
         })
     }
 
     fn write_binary<W: Write>(&self, w: &mut BinaryWriter<W>) -> Result<()> {
         w.write_val(self.pe_alpha_extension)?;
         w.write_val(self.line_reference_y_axis)?;
+        w.write_val(self.line_length_scale)?;
         Ok(())
     }
 }

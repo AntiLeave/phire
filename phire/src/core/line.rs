@@ -293,9 +293,9 @@ impl JudgeLine {
                                 return;
                             }
                             let len = if settings.line_reference_y_axis {
-                                res.info.line_length / res.aspect_ratio
+                                res.info.line_length * settings.line_length_scale / res.aspect_ratio
                             } else {
-                                res.info.line_length
+                                res.info.line_length * settings.line_length_scale
                             };
                             let thickness = if settings.line_reference_y_axis {
                                 0.0150 / res.aspect_ratio

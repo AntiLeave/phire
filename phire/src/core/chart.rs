@@ -17,10 +17,20 @@ pub struct ChartExtra {
     pub videos: Vec<(super::Video, Option<super::VideoAttach>)>,
 }
 
-#[derive(Default)]
 pub struct ChartSettings {
     pub pe_alpha_extension: bool,
     pub line_reference_y_axis: bool,
+    pub line_length_scale: f32,
+}
+
+impl Default for ChartSettings {
+    fn default() -> Self {
+        Self {
+            pe_alpha_extension: false,
+            line_reference_y_axis: false,
+            line_length_scale: 1.0,
+        }
+    }
 }
 
 pub type HitSoundMap = FxHashMap<String, AudioClip>;
