@@ -154,9 +154,13 @@ impl Chart {
                     let line = &self.lines[attach.line];
                     let color = line.color.now_opt().unwrap_or(res.judge_line_color);
                     let line_scale = line.object.scale.now_with_def(1.0, 1.0);
-                    let mat = Rotation2::new(
-                        self.lines[attach.line].fetch_rot(&self.lines).to_radians() * attach.rotation_factor).to_homogeneous()
-                        .append_translation(&self.lines[attach.line].fetch_pos(res, &self.lines).component_mul(&Vector::new(attach.position_x_factor, attach.position_y_factor)));
+                    let tr = line
+                        .fetch_pos(res, &self.lines)
+                        .component_mul(&Vector::new(attach.position_x_factor, attach.position_y_factor));
+                    let mat = Rotation2::new(line.fetch_rot(&self.lines).to_radians() * attach.rotation_factor)
+                        .to_homogeneous()
+                        .append_nonuniform_scaling(&Vector::new(1., -1.))
+                        .append_translation(&tr);
                     res.apply_model_of(&mat.append_nonuniform_scaling(&Vector::new(1., -1.)), |res| {
                         video.render(
                             res.time,
